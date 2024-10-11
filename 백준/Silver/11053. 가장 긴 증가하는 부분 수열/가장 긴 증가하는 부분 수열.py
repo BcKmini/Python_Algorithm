@@ -1,0 +1,13 @@
+n = int(input())  
+a = list(map(int, input().split())) 
+
+# dp 테이블 초기화
+dp = [1] * n
+
+# LIS 알고리즘 (DP 방식)
+for i in range(1, n):
+    for j in range(i):
+        if a[i] > a[j]:
+            dp[i] = max(dp[i], dp[j] + 1)
+
+print(max(dp))
